@@ -14,7 +14,7 @@
 :root {
     --bg-color: #fdfdfd;
     --text-color: #333;
-    --main-color: #754ef9;
+    --main-color: #bc8559;
     --white-color:#fdfdfd;
     --shadow-color: rgba(0, 0, 0, .2);
 }
@@ -103,13 +103,13 @@ body {
 .header.sticky #darkMode-icon {
     color: var(--text-color);
     opacity: .9;
-    display: none;
 }
 
 #menu-icon {
+    display: none;
     font-size: 3.6rem;
     color: var(--text-color);
-    display: none;
+    cursor: pointer;
 }
 
 section {
@@ -133,7 +133,7 @@ section {
 }
 
 .home-content h1 {
-    font-size: 5.6rem;
+    font-size: 3rem;
     font-weight: 700;
     margin-bottom: .3rem;
 }
@@ -497,7 +497,7 @@ span {
 }
 
 .testimonial-slide p {
-    font-size: 1.4rem;
+    font-size: 2.5rem;
     text-align: center;
 }
 
@@ -644,6 +644,7 @@ span {
 
     .navbar a.active::before {
         background: var(--main-color);
+        opacity: .7;
     }
 
     .home .home-content {
@@ -690,6 +691,7 @@ span {
     }
 
     .navbar {
+        display: none;
         position: absolute;
         top: 100%;
         left: 0;
@@ -698,18 +700,17 @@ span {
         background: var(--bg-color);
         border-top: .1rem solid rgba(0, 0, 0, .2);
         box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
-        display: none;
+        transition: all 0.3s ease;
     }
 
     .navbar.active {
         display: block;
     }
 
-    navbar a {
+    .navbar a {
         display: block;
         font-size: 2rem;
-        margin: 1girem 0;
-        padding: 1rem;
+        margin: 3rem 0;
         color: var(--text-color);
     }
 
@@ -850,6 +851,7 @@ span {
 
     #darkMode-icon {
         right: 6rem;
+        font-size: 2.4rem;
     }
 
     .home {
