@@ -60,15 +60,46 @@ body {
     cursor: default;
 }
 
+/* Navbar default (untuk layar besar) */
 .navbar {
     display: flex;
     gap: 1rem;
     margin-left: auto;
+    background: var(--bg-color);
+    flex-direction: row; /* Mengubah ke baris (untuk layar besar) */
+    padding: 0; /* Menghilangkan padding ekstra */
+    box-shadow: none; /* Menghilangkan bayangan pada layar besar */
+    transform: none; /* Menghapus transformasi */
+    opacity: 1; /* Pastikan menu terlihat */
+    position: static; /* Posisi statis pada layar besar */
+}
+
+/* Navbar mobile (saat menu icon di klik) */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 1rem;
+        box-shadow: 0 .1rem 1rem var(--shadow-color);
+        transform: translateY(-100%);
+        opacity: 0;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        z-index: 99;
+    }
+    .navbar.active {
+        transform: translateY(0);
+        opacity: 1;
+        display: flex;
+    }
 }
 
 .navbar a {
     font-size: 1rem;
-    color: var(--text-color);
+    color: var(--text-color); /* Menggunakan warna utama agar lebih terlihat */
     font-weight: 500;
     padding: 0.5rem;
     border-radius: 5px;
@@ -81,7 +112,7 @@ body {
 }
 
 .header.sticky .navbar a.active {
-    color: var(--main-color);
+    color: var(--text-color);
 }
 
 .navbar a.active::before {
@@ -113,6 +144,14 @@ body {
     font-size: 2.5rem;
     color: var(--text-color);
     display: none;
+}
+
+/* Icon container styling */
+.icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem; /* Adds space between the menu and dark mode icons */
 }
 
 /* Update Form Styling */
@@ -178,6 +217,9 @@ body {
 
 .footer-text {
     margin: 0;
+    display: flex; /* Menyelaraskan teks dan ikon secara horizontal */
+    align-items: center; /* Menyelaraskan teks dan ikon secara vertikal */
+    gap: 1rem; /* Memberikan jarak antara teks dan ikon */
 }
 
 .footer-text p {
@@ -188,6 +230,8 @@ body {
 .footer-iconTop {
     display: flex;
     gap: 1rem;
+    flex-wrap: wrap; /* Ensures the icons wrap on smaller screens */
+    align-items: center; /* Menyelaraskan ikon secara vertikal */
 }
 
 .footer-iconTop a {
@@ -211,6 +255,16 @@ body {
     color: #333;
 }
 
+/* Menempatkan ikon up arrow di samping teks footer */
+.footer-iconTop a.up-arrow-icon {
+    padding: .8rem;
+    background: var(--white-color);
+    border-radius: .8rem;
+    border: .2rem solid var(--main-color);
+    outline: .2rem solid transparent;
+    transition: .5s ease;
+}
+
 /* Responsive styling */
 @media (max-width: 768px) {
     .header {
@@ -219,16 +273,39 @@ body {
     .navbar {
         flex-direction: column;
         display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 1rem;
+        box-shadow: 0 .1rem 1rem var(--shadow-color);
+        transform: translateY(-100%);
+        opacity: 0;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        z-index: 99;
     }
     .navbar.active {
+        transform: translateY(0);
+        opacity: 1;
         display: flex;
     }
     #menu-icon {
         display: block;
     }
+    .icon-container {
+        display: flex;
+        gap: 1rem;
+    }
     .footer {
         flex-direction: column;
         text-align: center;
+    }
+    .footer-text {
+        justify-content: center;
+        gap: 0.5rem;
+    }
+    .footer-iconTop {
+        margin-top: 0.5rem; /* Menambahkan jarak antara teks footer dan ikon */
     }
 }
 
@@ -242,6 +319,13 @@ body {
     }
     .footer {
         padding: 1.5rem 3%;
+        align-items: center; /* Align items to center */
+    }
+    .footer-text {
+        gap: 0.3rem;
+    }
+    .footer-iconTop {
+        margin-top: 1rem; /* Menambahkan jarak antara teks footer dan ikon */
     }
 }
 
@@ -259,8 +343,11 @@ body {
     .footer-text p {
         font-size: 0.8rem;
     }
-    .footer-iconTop a {
-        padding: 0.4rem;
+    .footer-iconTop {
+        margin-top: 0.9rem;
+    }
+    .footer-iconTop a.up-arrow-icon {
+        padding: 0.5rem;
     }
     table, th, td {
         font-size: 0.8rem;

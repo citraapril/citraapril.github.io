@@ -64,6 +64,7 @@ body {
     display: flex;
     gap: 1rem;
     margin-left: auto;
+    align-items: center;
 }
 
 .navbar a {
@@ -115,24 +116,35 @@ body {
     display: none;
 }
 
+.icon-container {
+    display: flex;
+    align-items: center;
+}
+
 .data {
-    margin-top: 80px; /* Jarak antara navbar dan konten utama */
+    margin-top: 80px;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Menempatkan konten di tengah */
+    align-items: center;
     flex: 1;
-    padding: 0 1rem; /* Memberi padding di kiri dan kanan untuk ruang kosong */
+    padding: 0 1rem;
 }
 
 .data h2 {
-    text-align: center; /* Menempatkan h2 di tengah */
+    text-align: center;
+}
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
 }
 
 .data table {
     width: 100%;
-    max-width: 1000px; /* Membatasi lebar tabel untuk tampilan yang lebih baik */
+    max-width: 1000px;
     border-collapse: collapse;
     margin-top: 20px;
+    min-width: 600px; /* Menambahkan lebar minimum untuk tabel agar scroll horizontal aktif */
 }
 
 table, th, td {
@@ -142,6 +154,7 @@ table, th, td {
 th, td {
     padding: 12px;
     text-align: left;
+    word-wrap: break-word;
 }
 
 th {
@@ -152,18 +165,29 @@ tr:hover {
     background-color: #f1f1f1;
 }
 
-button.delete {
-    display: inline-block;
-    padding: .1rem 0.5rem;
-    background: var(--main-color);
-    border-radius: .6rem;
+/* Styling untuk kolom actions */
+.actions {
+    display: flex;
+    flex-direction: column; /* Menampilkan tombol dalam kolom vertikal */
+    gap: 0.5rem; /* Jarak antara tombol */
+    align-items: center; /* Memusatkan tombol di dalam kolom */
+}
+
+.actions button {
+    display: block;
+    padding: 0.5rem 1rem; /* Menyesuaikan padding agar tombol lebih proporsional */
+    border-radius: 0.8rem; /* Menambahkan border-radius untuk sudut yang lebih halus */
     box-shadow: 0 0.5rem 1rem var(--shadow-color);
-    font-size: 0.7rem;
-    color: var(--white-color);
-    letter-spacing: .1rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.1rem;
     font-weight: 500;
-    border: .2rem solid transparent;
-    transition: .5s ease;
+    border: 0.2rem solid transparent;
+    transition: 0.3s ease;
+}
+
+button.delete {
+    background: var(--main-color);
+    color: var(--white-color);
 }
 
 button.delete:hover {
@@ -173,17 +197,8 @@ button.delete:hover {
 }
 
 button.update {
-    display: inline-block;
-    padding: .1rem 0.5rem;
     background: var(--main-color);
-    border-radius: .6rem;
-    box-shadow: 0 0.5rem 1rem var(--shadow-color);
-    font-size: 0.7rem;
     color: var(--white-color);
-    letter-spacing: .1rem;
-    font-weight: 500;
-    border: .2rem solid transparent;
-    transition: .5s ease;
 }
 
 button.update:hover {
@@ -200,7 +215,7 @@ button.update:hover {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    margin-top: auto; /* Memastikan footer berada di bawah */
+    margin-top: auto;
 }
 
 .footer-text {
@@ -215,6 +230,8 @@ button.update:hover {
 .footer-iconTop {
     display: flex;
     gap: 1rem;
+    flex-wrap: nowrap; /* Pastikan ikon tidak turun ke baris berikutnya */
+    justify-content: center; /* Tambahkan ini agar ikon berada di tengah */
 }
 
 .footer-iconTop a {
@@ -246,6 +263,7 @@ button.update:hover {
     .navbar {
         flex-direction: column;
         display: none;
+        align-items: flex-start;
     }
     .navbar.active {
         display: flex;
@@ -253,12 +271,19 @@ button.update:hover {
     #menu-icon {
         display: block;
     }
+    #darkMode-icon {
+        margin-left: auto;
+        font-size: 2rem;
+    }
     .footer {
         flex-direction: column;
         text-align: center;
     }
+    .footer-iconTop {
+        justify-content: center;
+    }
     .data {
-        margin-top: 60px; /* Kurangi jarak di bawah navbar untuk layar kecil */
+        margin-top: 60px;
     }
 }
 
@@ -274,7 +299,17 @@ button.update:hover {
         padding: 1.5rem 3%;
     }
     .data {
-        margin-top: 50px; /* Mengurangi jarak di bawah navbar untuk layar sangat kecil */
+        margin-top: 50px;
+    }
+    #darkMode-icon {
+        font-size: 1.8rem;
+        margin-left: auto;
+    }
+    .navbar a {
+        padding: 0.3rem;
+    }
+    .footer-iconTop {
+        justify-content: center;
     }
 }
 
@@ -288,14 +323,34 @@ button.update:hover {
     }
     .footer {
         padding: 1rem 2%;
+        flex-direction: column;
+        text-align: center;
     }
     .footer-text p {
         font-size: 0.8rem;
+        margin-bottom: 1rem;
+    }
+    .footer-iconTop {
+        flex-wrap: nowrap;
+        justify-content: center;
     }
     .footer-iconTop a {
         padding: 0.4rem;
     }
     table, th, td {
         font-size: 0.8rem;
+    }
+    #darkMode-icon {
+        font-size: 1.5rem;
+        margin-left: auto;
+    }
+    .navbar {
+        gap: 0.5rem;
+    }
+    .table-container {
+        overflow-x: auto;
+    }
+    .data table {
+        min-width: 600px;
     }
 }
