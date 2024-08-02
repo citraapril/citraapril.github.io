@@ -14,6 +14,15 @@
     --shadow-color: rgba(0, 0, 0, .7);
 }
 
+.dark-mode th {
+    background-color: #1a1a1a; /* Warna latar belakang yang lebih gelap untuk dark mode */
+    color: #fdfdfd; /* Warna teks yang lebih terang untuk kontras yang baik */
+}
+
+.dark-mode tr:hover {
+    background-color: #333; /* Warna latar belakang baris saat hover dalam dark mode */
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -60,6 +69,7 @@ body {
     cursor: default;
 }
 
+/* Navbar */
 .navbar {
     display: flex;
     gap: 1rem;
@@ -113,7 +123,8 @@ body {
 #menu-icon {
     font-size: 2.5rem;
     color: var(--text-color);
-    display: none;
+    display: none; /* Hanya muncul di layar kecil */
+    cursor: pointer;
 }
 
 .icon-container {
@@ -128,6 +139,7 @@ body {
     align-items: center;
     flex: 1;
     padding: 0 1rem;
+    margin-bottom: 40px; /* Menambahkan margin bawah untuk memberi jarak dengan footer */
 }
 
 .data h2 {
@@ -136,25 +148,26 @@ body {
 
 .table-container {
     width: 100%;
-    overflow-x: auto;
+    overflow-x: auto; /* Aktifkan scroll horizontal jika tabel terlalu besar */
+    margin-bottom: 40px; /* Menjaga jarak dengan footer */
 }
 
 .data table {
     width: 100%;
-    max-width: 1000px;
     border-collapse: collapse;
     margin-top: 20px;
-    min-width: 600px; /* Menambahkan lebar minimum untuk tabel agar scroll horizontal aktif */
+    table-layout: auto; /* Mengizinkan tabel menyesuaikan ukuran kolom sesuai dengan konten */
 }
 
 table, th, td {
     border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+    word-wrap: break-word; /* Memastikan konten dalam sel terbungkus dengan baik */
 }
 
 th, td {
-    padding: 12px;
-    text-align: left;
-    word-wrap: break-word;
+    min-width: 100px; /* Menetapkan lebar minimum untuk setiap kolom */
 }
 
 th {
@@ -262,18 +275,25 @@ button.update:hover {
     }
     .navbar {
         flex-direction: column;
-        display: none;
+        display: none; /* Tersembunyi pada layar kecil */
         align-items: flex-start;
     }
     .navbar.active {
         display: flex;
+        background-color: var(--bg-color); /* Tambahkan background untuk tampilan yang rapi */
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 100%;
+        padding: 1rem 0;
+        z-index: 99;
     }
     #menu-icon {
-        display: block;
+        display: block; /* Muncul pada layar kecil */
     }
     #darkMode-icon {
         margin-left: auto;
-        font-size: 2rem;
+        font-size: 1.8rem; /* Ukuran font ikon untuk layar kecil */
     }
     .footer {
         flex-direction: column;
@@ -302,8 +322,7 @@ button.update:hover {
         margin-top: 50px;
     }
     #darkMode-icon {
-        font-size: 1.8rem;
-        margin-left: auto;
+        font-size: 1.6rem; /* Ukuran font ikon untuk layar lebih kecil */
     }
     .navbar a {
         padding: 0.3rem;
@@ -338,7 +357,7 @@ button.update:hover {
         padding: 0.4rem;
     }
     table, th, td {
-        font-size: 0.8rem;
+        font-size: 0.7rem; /* Mengurangi ukuran font tabel untuk layar kecil */
     }
     #darkMode-icon {
         font-size: 1.5rem;
@@ -349,8 +368,16 @@ button.update:hover {
     }
     .table-container {
         overflow-x: auto;
+        margin-bottom: 1rem; /* Jarak tambahan dengan footer */
     }
     .data table {
-        min-width: 600px;
+        min-width: 320px; /* Menetapkan lebar minimum untuk tabel */
+    }
+    th, td {
+        padding: 8px; /* Mengurangi padding untuk tabel lebih kecil */
+    }
+    .actions button {
+        font-size: 0.7rem; /* Mengurangi ukuran font tombol aksi */
+        padding: 0.4rem 0.8rem; /* Mengurangi padding tombol */
     }
 }
