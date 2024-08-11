@@ -12,8 +12,11 @@
         <!-- box icons -->
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
+        <!-- email js -->
+        <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
     <!-- custom css -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 
 </head>
 
@@ -29,7 +32,7 @@
             <a href="#services">Services</a>
             <a href="#portfolio">Portfolio</a>
             <a href="#contact">Contact</a>
-            
+            <a href="data.html">Contact Data</a>
         </nav>
         
         <div class="bx bx-moon" id="darkMode-icon"></div>
@@ -226,24 +229,27 @@
     </div>
 
     <!-- contact section design -->
-<section class="contact" id="contact">
-    <h2 class="heading">Contact <span>Me!</span></h2>
+    <section class="contact" id="contact">
+        <h2 class="heading">Contact <span>Me!</span></h2>
+    
+        <form id="contactForm">
+            <div class="input-box">
+                <input type="text" id="fullName" placeholder="Full Name" required>
+                <input type="email" id="emailAddress" placeholder="Email Address" required>
+            </div>
+            <div class="input-box">
+                <input type="number" id="mobileNumber" placeholder="Mobile Number" required>
+                <input type="text" id="emailSubject" placeholder="Email Subject" required>
+            </div>
+            <textarea id="message" cols="30" rows="10" placeholder="Your Message" required></textarea>
+            <input type="submit" value="Send Message" class="btn">
+        </form>
 
-    <form id="contactForm">
-        <div class="input-box">
-            <input type="text" id="fullName" placeholder="Full Name" required>
-            <input type="email" id="emailAddress" placeholder="Email Address" required>
-        </div>
-        <div class="input-box">
-            <input type="number" id="mobileNumber" placeholder="Mobile Number" required>
-            <input type="text" id="emailSubject" placeholder="Email Subject" required>
-        </div>
-        <textarea id="message" cols="30" rows="10" placeholder="Your Message" required></textarea>
-        <input type="submit" value="Send Message" class="btn">
-    </form>
-</section>
-
-
+            <!-- Notification -->
+    <div id="notification" style="display:none;"></div>
+    
+    </section>
+    
     <!-- footer design -->
     <footer class="footer">
         <div class="footer-text">
@@ -262,9 +268,6 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <!-- custom js -->
-    <script src="script.js"></script>
-
-
-    <script src="https://smtp.com/v3/smtp.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>

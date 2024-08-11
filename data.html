@@ -11,8 +11,11 @@
     <!-- box icons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
+    <!-- email js -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
     <!-- custom css -->
-    <link rel="stylesheet" href="data.css">
+    <link rel="stylesheet" href="css/data.css">
 </head>
 <body>
     <!-- header design -->
@@ -23,7 +26,8 @@
             <a href="index.html#about">About</a>
             <a href="index.html#services">Services</a>
             <a href="index.html#portfolio">Portfolio</a>
-            <a href="index.html#contact" class="active">Contact</a>
+            <a href="index.html#contact">Contact</a>
+            <a href="data.html" class="active">Contact Data</a>
         </nav>
         <div class="bx bx-moon" id="darkMode-icon"></div>
         <div class="bx bx-menu" id="menu-icon"></div>
@@ -43,7 +47,7 @@
                     <th>Actions</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="contactTableBody">
                 <!-- Data rows will be populated by JavaScript -->
             </tbody>
         </table>
@@ -60,6 +64,6 @@
     </footer>
 
     <!-- custom js -->
-    <script src="data.js"></script>
+    <script src="js/data.js"></script>
 </body>
 </html>
